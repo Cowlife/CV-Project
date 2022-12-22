@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/models/Fogueira.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/models/Tree01.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/models/Tree02.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -80,4 +81,7 @@ transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 42.5146, 0, 73.5825 )
 script = SubResource( 4 )
 
 [node name="Camera" type="Camera" parent="CameraHolder"]
-transform = Transform( -1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 31.7039, 34.027, 29.581 )
+transform = Transform( -1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 31.7039, 34.027, 29.581 )
+
+[node name="KinematicBody" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.999998, -4.00363e-05, 0.00221609, 0, 0.999837, 0.0180632, -0.00221646, 0.0180631, -0.999834, 85.4631, 2.68684, 82.689 )
