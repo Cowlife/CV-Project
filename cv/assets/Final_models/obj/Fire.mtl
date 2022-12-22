@@ -1,0 +1,106 @@
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Fogueira_LenhaFogueira_BaseColor.png
+bump  -bm 1 Fogueira_LenhaFogueira_Normal.png
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Fogueira_PedraFogueira_BaseColor.png
+bump  -bm 1 Fogueira_PedraFogueira_Normal.png
+Ni 1.00
+newmtl lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Cacador_Cacador_BaseColor.png
+bump  -bm 1 Cacador_Cacador_Normal.png
+Ni 1.00
+newmtl lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Cacador_Lanterna_BaseColor.png
+bump  -bm 1 Cacador_Lanterna_Normal.png
+Ni 1.00
+newmtl lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Animals_Bear_BaseColor.png
+bump  -bm 1 Animals_Bear_Normal.png
+Ni 1.00
+newmtl lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Animals_Fox_BaseColor.png
+bump  -bm 1 Animals_Fox_Normal.png
+Ni 1.00
+newmtl lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Animals_Pig_BaseColor.png
+bump  -bm 1 Animals_Pig_Normal.png
+Ni 1.00
+newmtl lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ground_Ground_BaseColor.png
+bump  -bm 1 Ground_Ground_Normal.png
+Ni 1.00
+newmtl lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Trees_Rocks_Trees_BaseColor.png
+bump  -bm 1 Trees_Rocks_Trees_Normal.png
+Ni 1.00
+newmtl lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Trees_Rocks_Rocks_BaseColor.png
+bump  -bm 1 Trees_Rocks_Rocks_Normal.png
+Ni 1.00
+newmtl phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Candeeiro_Candeeiro_BaseColor.png
+bump  -bm 1 Candeeiro_Candeeiro_Normal.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl phong2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd House_House_BaseColor.png
+bump  -bm 1 House_House_Normal.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
