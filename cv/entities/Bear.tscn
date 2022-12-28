@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Final_models/obj/Bear.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/Final_models/FBX/Bear.material" type="Material" id=2]
+[ext_resource path="res://entities/Entity.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 1.5 )
+
+[node name="Bear" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28789, 0, 18.8816 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
