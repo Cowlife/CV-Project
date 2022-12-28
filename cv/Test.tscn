@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://assets/models/Tree01.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/models/Tree02.tscn" type="PackedScene" id=10]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/Bear.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/Pig.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/Fox.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -57,13 +60,16 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 150.098, 57.7997, 134.285 )
+transform = Transform( 1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 26.37, 80.8856, 7.04588 )
 light_color = Color( 0.984314, 0.992157, 1, 1 )
 shadow_enabled = true
 script = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="WorldEnvironment"]
+autostart = true
 
 [node name="Candeeiro" parent="." instance=ExtResource( 7 )]
 transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 80.6516, -0.349721, 124.58 )
@@ -83,5 +89,14 @@ script = SubResource( 4 )
 [node name="Camera" type="Camera" parent="CameraHolder"]
 transform = Transform( -1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 31.7039, 34.027, 29.581 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 11 )]
-transform = Transform( -0.999998, -4.00363e-05, 0.00221609, 0, 0.999837, 0.0180632, -0.00221646, 0.0180631, -0.999834, 85.4631, 2.68684, 82.689 )
+[node name="Hunter" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.999998, -4.00367e-05, 0.00221613, 0, 0.999837, 0.0180631, -0.00221649, 0.0180631, -0.999834, 85.4631, 2.68684, 82.689 )
+
+[node name="Bear" parent="." instance=ExtResource( 12 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 59.2501, 1.32767, 68.6446 )
+
+[node name="Fox" parent="." instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 71.0074, 0.874568, 130.416 )
+
+[node name="Pig" parent="." instance=ExtResource( 13 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 78.6238, 1.17289, 98.9583 )
