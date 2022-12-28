@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Cacador.obj-8e0f7c3da453aea8f66a6c1b340c5f42.mesh"
+
+[deps]
+
+files=[ "res://.import/Cacador.obj-8e0f7c3da453aea8f66a6c1b340c5f42.mesh" ]
+
+source_file="res://assets/Final_models/obj/Cacador.obj"
+dest_files=[ "res://.import/Cacador.obj-8e0f7c3da453aea8f66a6c1b340c5f42.mesh", "res://.import/Cacador.obj-8e0f7c3da453aea8f66a6c1b340c5f42.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

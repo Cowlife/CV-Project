@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Light.obj-b947436d760d07b3d0b626808fb51dd3.mesh"
+
+[deps]
+
+files=[ "res://.import/Light.obj-b947436d760d07b3d0b626808fb51dd3.mesh" ]
+
+source_file="res://assets/Final_models/obj/Light.obj"
+dest_files=[ "res://.import/Light.obj-b947436d760d07b3d0b626808fb51dd3.mesh", "res://.import/Light.obj-b947436d760d07b3d0b626808fb51dd3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
