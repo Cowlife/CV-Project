@@ -96,7 +96,7 @@ transform = Transform( -0.999998, -4.00367e-05, 0.00221613, 0, 0.999837, 0.01806
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 59.2501, 1.32767, 68.6446 )
 
 [node name="Fox" parent="." instance=ExtResource( 14 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 71.0074, 0.874568, 130.416 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 71.0074, 1.65817, 130.416 )
 
 [node name="Pig" parent="." instance=ExtResource( 13 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 78.6238, 1.17289, 98.9583 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 78.6238, 1.67367, 98.9583 )
