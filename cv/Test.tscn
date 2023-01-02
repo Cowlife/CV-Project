@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -40,6 +40,71 @@ script/source = "extends Spatial
 # var b = \"text\"
 
 "
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.987097 )
+colors = PoolColorArray( 0.929688, 0.490776, 0.0653687, 1, 0.839844, 0.288696, 0.288696, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.174157, 0.994318 ), 0.0, 0.0, 0, 0, Vector2( 0.561798, 0.476136 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 0.0397727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 0.0
+gravity = Vector3( 0, 4, 0 )
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+scale = 0.5
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.241573, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.764045, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.960674, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 0.0
+gravity = Vector3( 0, 4, 0 )
+angular_velocity = 90.0
+scale = 0.7
+scale_curve = SubResource( 13 )
+color = Color( 1, 1, 1, 0.113725 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=16]
+material = SubResource( 15 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -120,6 +185,19 @@ transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 80.6516, -0.349721, 124.
 
 [node name="Fogueira" parent="Assets" instance=ExtResource( 8 )]
 transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 100.379, 0.334787, 71.674 )
+
+[node name="Fire" type="Particles" parent="Assets/Fogueira"]
+transform = Transform( 0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.0562309, 0.00436408, 0.00569807 )
+amount = 40
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="Smoke" type="Particles" parent="Assets/Fogueira"]
+transform = Transform( 0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.0691079, 0.00419831, 0 )
+amount = 16
+lifetime = 2.0
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
 
 [node name="Tree" parent="Assets" instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 7.16364, 0, 99.5583 )
