@@ -3,7 +3,7 @@ extends KinematicBody
 
 # Declare member variables here. Examples:
 var speed = 2
-var point = Vector3(52, 12, 0)
+var point = Vector3(52, 0, 12)
 
 
 # Called when the node enters the scene tree for the first time.
