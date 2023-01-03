@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -14,6 +14,16 @@
 [ext_resource path="res://entities/Bear.tscn" type="PackedScene" id=12]
 [ext_resource path="res://entities/Pig.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/Fox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/Final_models/obj/Ground.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/Final_models/Texturas/Ground_Ground_Roughness.png" type="Texture" id=16]
+[ext_resource path="res://assets/Final_models/Texturas/Ground_Ground_BaseColor.png" type="Texture" id=17]
+[ext_resource path="res://assets/Final_models/Texturas/Ground_Ground_Normal.png" type="Texture" id=18]
+[ext_resource path="res://assets/Final_models/Texturas/Ground_Ground_Metallic.png" type="Texture" id=19]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Metallic.png" type="Texture" id=20]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Normal.png" type="Texture" id=21]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Roughness.png" type="Texture" id=22]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_BaseColor.png" type="Texture" id=23]
+[ext_resource path="res://assets/Final_models/obj/House.obj" type="ArrayMesh" id=24]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -107,9 +117,31 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id=16]
 material = SubResource( 15 )
 
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 17 )
+metallic_specular = 1.0
+metallic_texture = ExtResource( 19 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 16 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 18 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 23 )
+metallic_texture = ExtResource( 20 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 22 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 21 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="HTerrain" type="Spatial" parent="."]
+visible = false
 script = ExtResource( 2 )
 lod_scale = 2.0
 _terrain_data = ExtResource( 1 )
@@ -166,7 +198,7 @@ omni_range = 8.27404
 transform = Transform( -0.999998, -4.00367e-05, 0.00221613, 0, 0.999837, 0.0180631, -0.00221649, 0.0180631, -0.999834, 85.4631, 2.68684, 82.689 )
 
 [node name="Bear" parent="Entities" instance=ExtResource( 12 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 59.2501, 1.32767, 68.6446 )
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 59.3566, 1.58883, 68.4984 )
 
 [node name="Fox" parent="Entities" instance=ExtResource( 14 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 71.0074, 1.65817, 130.416 )
@@ -179,18 +211,139 @@ script = ExtResource( 10 )
 [node name="Assets" type="Spatial" parent="."]
 
 [node name="Candeeiro" parent="Assets" instance=ExtResource( 7 )]
-transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 80.6516, -0.349721, 124.58 )
+transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 122.587, -0.349721, 124.58 )
 
 [node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro"]
-transform = Transform( 0.00333333, 0, 0, 0, 0.00235702, 0.00235702, 0, -0.00235702, 0.00235702, -0.0665964, 0.0319067, -0.0276867 )
-light_color = Color( 0.623529, 0.341176, 0.341176, 1 )
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro2" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020825, 0, 0.0618807 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro2"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro3" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0350009, 0, -0.389274 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro3"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro4" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0424384, 0, -0.273151 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro4"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro5" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00235933, -1.234e-08, -0.207712 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro5"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro6" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0244208, -2.52621e-08, -0.078786 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro6"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro7" parent="Assets/Candeeiro" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.265456, -0.0010681, -0.343267 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro2" parent="Assets/Candeeiro/Candeeiro7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.024032, 0, 0.0538235 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7/Candeeiro2"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro3" parent="Assets/Candeeiro/Candeeiro7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0350009, 0, -0.389274 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7/Candeeiro3"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro4" parent="Assets/Candeeiro/Candeeiro7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.0311508, 0, -0.266703 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7/Candeeiro4"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro5" parent="Assets/Candeeiro/Candeeiro7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0299065, 0.000811793, -0.211859 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7/Candeeiro5"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
+light_energy = 9.661
+shadow_enabled = true
+spot_range = 24.3171
+spot_angle = 20.293
+
+[node name="Candeeiro6" parent="Assets/Candeeiro/Candeeiro7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0121744, -2.52621e-08, -0.078786 )
+
+[node name="SpotLight" type="SpotLight" parent="Assets/Candeeiro/Candeeiro7/Candeeiro6"]
+transform = Transform( 0.00131085, -0.00208606, 0.00224525, -0.00127379, 0.00185026, 0.00246275, -0.00278752, -0.00182648, -6.95349e-05, -0.0665964, 0.0319067, -0.0276867 )
+light_color = Color( 0.592157, 0.592157, 0.568627, 1 )
 light_energy = 9.661
 shadow_enabled = true
 spot_range = 24.3171
 spot_angle = 20.293
 
 [node name="Fogueira" parent="Assets" instance=ExtResource( 8 )]
-transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 100.379, 0.334787, 71.674 )
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 100.379, -0.448456, 71.674 )
 
 [node name="Fire" type="Particles" parent="Assets/Fogueira"]
 transform = Transform( 0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.0562309, 0.00436408, 0.00569807 )
@@ -206,4 +359,121 @@ process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
 [node name="Tree" parent="Assets" instance=ExtResource( 9 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 7.16364, 0, 99.5583 )
+transform = Transform( 4.97096, 0, 0, 0, 4.97096, 0, 0, 0, 4.97096, 7.19019, -0.597622, 55.7725 )
+
+[node name="Tree2" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
+
+[node name="Tree7" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
+
+[node name="Tree8" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
+
+[node name="Tree3" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+
+[node name="Tree9" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -1.5834, 0, 8.31361 )
+
+[node name="Tree6" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
+
+[node name="Tree4" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
+
+[node name="Tree5" parent="Assets/Tree" instance=ExtResource( 9 )]
+transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+
+[node name="Tree2" parent="Assets" instance=ExtResource( 9 )]
+transform = Transform( -1.94742, 0, -4.57362, 0, 4.97096, 0, 4.57362, 0, -1.94742, 14.7682, -0.597622, 81.5377 )
+
+[node name="Tree2" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
+
+[node name="Tree7" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -5.19792, 0, 8.25 )
+
+[node name="Tree8" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.08773, 0, 4.25031 )
+
+[node name="Tree3" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+
+[node name="Tree9" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.989275, 0, 8.06064 )
+
+[node name="Tree6" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
+
+[node name="Tree4" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
+
+[node name="Tree5" parent="Assets/Tree2" instance=ExtResource( 9 )]
+transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+
+[node name="Tree3" parent="Assets" instance=ExtResource( 9 )]
+transform = Transform( 3.80781, 0, 3.19547, 0, 4.97096, 0, -3.19547, 0, 3.80781, 133.213, -0.597622, 66.2359 )
+
+[node name="Tree2" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
+
+[node name="Tree7" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -5.19792, 0, 8.25 )
+
+[node name="Tree8" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.08773, 0, 4.25031 )
+
+[node name="Tree3" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+
+[node name="Tree9" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.989275, 0, 8.06064 )
+
+[node name="Tree6" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
+
+[node name="Tree4" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
+
+[node name="Tree5" parent="Assets/Tree3" instance=ExtResource( 9 )]
+transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+
+[node name="Tree4" parent="Assets" instance=ExtResource( 9 )]
+transform = Transform( 1.77754, 0, -4.64228, 0, 4.97096, 0, 4.64228, 0, 1.77754, 92.1862, -0.597622, 111.589 )
+
+[node name="Tree2" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
+
+[node name="Tree7" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
+
+[node name="Tree8" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
+
+[node name="Tree3" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+
+[node name="Tree9" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -1.5834, 0, 8.31361 )
+
+[node name="Tree6" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
+
+[node name="Tree4" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
+
+[node name="Tree5" parent="Assets/Tree4" instance=ExtResource( 9 )]
+transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+
+[node name="Ground" type="MeshInstance" parent="Assets"]
+transform = Transform( 2.3659, 0, 0, 0, 1, 0, 0, 0, 2.3659, 82.0041, 0.404242, 71.3925 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../../HTerrain")
+material/0 = SubResource( 17 )
+
+[node name="House" type="MeshInstance" parent="Assets"]
+transform = Transform( 2.60977, 0, 0.692164, 0, 2.7, 0, -0.692164, 0, 2.60977, 123.283, 1.41086, 48.1563 )
+mesh = ExtResource( 24 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 18 )

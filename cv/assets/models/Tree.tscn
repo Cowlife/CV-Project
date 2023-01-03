@@ -8,4 +8,3 @@
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
-material/1 = ExtResource( 2 )
