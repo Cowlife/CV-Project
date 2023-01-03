@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -29,6 +29,13 @@
 [ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Rocks_Metallic.png" type="Texture" id=27]
 [ext_resource path="res://assets/Final_models/obj/Trees_Rocks_Rocks_BaseColor.png" type="Texture" id=28]
 [ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Rocks_Roughness.png" type="Texture" id=29]
+[ext_resource path="res://assets/Final_models/obj/Trees2.obj" type="ArrayMesh" id=30]
+[ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Trees_Roughness.png" type="Texture" id=31]
+[ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Trees_Normal.png" type="Texture" id=32]
+[ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Trees_Metallic.png" type="Texture" id=33]
+[ext_resource path="res://assets/Final_models/Texturas/Trees_Rocks_Trees_BaseColor.png" type="Texture" id=34]
+[ext_resource path="res://assets/Final_models/obj/Trees3.obj" type="ArrayMesh" id=35]
+[ext_resource path="res://assets/Final_models/obj/Trees4.obj" type="ArrayMesh" id=36]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -122,6 +129,18 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id=16]
 material = SubResource( 15 )
 
+[sub_resource type="SpatialMaterial" id=20]
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_texture = ExtResource( 34 )
+metallic_texture = ExtResource( 33 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 31 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 32 )
+
 [sub_resource type="SpatialMaterial" id=17]
 albedo_texture = ExtResource( 17 )
 metallic_specular = 1.0
@@ -153,6 +172,28 @@ roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 1.5
 normal_texture = ExtResource( 26 )
+
+[sub_resource type="SpatialMaterial" id=21]
+params_diffuse_mode = 2
+params_specular_mode = 2
+albedo_texture = ExtResource( 34 )
+metallic_texture = ExtResource( 33 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 31 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 32 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_texture = ExtResource( 34 )
+metallic_texture = ExtResource( 33 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 31 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 32 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -195,6 +236,7 @@ transform = Transform( -1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.7
 [node name="DirectionalLight" type="DirectionalLight" parent="Lights"]
 transform = Transform( 1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 26.0773, 28.4102, 23.4654 )
 light_color = Color( 0.509804, 0.619608, 0.72549, 1 )
+light_specular = 0.0
 shadow_enabled = true
 script = ExtResource( 6 )
 
@@ -375,112 +417,67 @@ shadow_color = Color( 0.647059, 0.490196, 0.490196, 1 )
 omni_range = 8.27404
 
 [node name="Tree" parent="Assets" instance=ExtResource( 9 )]
-transform = Transform( 4.97096, 0, 0, 0, 4.97096, 0, 0, 0, 4.97096, 7.19019, -0.597622, 55.7725 )
+transform = Transform( 4.97096, 0, 0, 0, 4.97096, 0, 0, 0, 4.97096, 4.59969, -0.597591, 61.9897 )
 
 [node name="Tree2" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
-
-[node name="Tree7" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
-
-[node name="Tree8" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
+transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.10274, 0, -1.27118 )
 
 [node name="Tree3" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -1.61109, 0, 1.33937 )
 
 [node name="Tree9" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -1.5834, 0, 8.31361 )
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -2.26086, 0, 8.31361 )
 
 [node name="Tree6" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
+transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.0230013, 0, 4.57041 )
 
 [node name="Tree4" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
+transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 12.5106, 0, -2.21682 )
 
 [node name="Tree5" parent="Assets/Tree" instance=ExtResource( 9 )]
-transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 13.9508, 0, 1.24306 )
 
-[node name="Tree2" parent="Assets" instance=ExtResource( 9 )]
-transform = Transform( -1.94742, 0, -4.57362, 0, 4.97096, 0, 4.57362, 0, -1.94742, 14.7682, -0.597622, 81.5377 )
+[node name="Trees2" type="MeshInstance" parent="Assets"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.66944, -0.885256, 142.433 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree2" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
+[node name="Trees3" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250289, 0, 3.86248 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree7" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -5.19792, 0, 8.25 )
+[node name="Trees5" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94672, 0, 5.10621 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree8" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.08773, 0, 4.25031 )
+[node name="Trees6" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48205, 0, 7.14948 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree3" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
+[node name="Trees7" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92664, 0, 8.89194 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree9" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.989275, 0, 8.06064 )
+[node name="Trees4" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 0.72205, 0, 0.691841, 0, 1, 0, -0.691841, 0, 0.72205, 12.1432, 0.0116692, 1.244 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
-[node name="Tree6" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
-
-[node name="Tree4" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
-
-[node name="Tree5" parent="Assets/Tree2" instance=ExtResource( 9 )]
-transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
-
-[node name="Tree3" parent="Assets" instance=ExtResource( 9 )]
-transform = Transform( 3.80781, 0, 3.19547, 0, 4.97096, 0, -3.19547, 0, 3.80781, 133.213, -0.597622, 66.2359 )
-
-[node name="Tree2" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
-
-[node name="Tree7" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -5.19792, 0, 8.25 )
-
-[node name="Tree8" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.08773, 0, 4.25031 )
-
-[node name="Tree3" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
-
-[node name="Tree9" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.989275, 0, 8.06064 )
-
-[node name="Tree6" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
-
-[node name="Tree4" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
-
-[node name="Tree5" parent="Assets/Tree3" instance=ExtResource( 9 )]
-transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
-
-[node name="Tree4" parent="Assets" instance=ExtResource( 9 )]
-transform = Transform( 1.77754, 0, -4.64228, 0, 4.97096, 0, 4.64228, 0, 1.77754, 92.1862, -0.597622, 111.589 )
-
-[node name="Tree2" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, 1.7802, 0, -1.27118 )
-
-[node name="Tree7" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
-
-[node name="Tree8" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.93744, 0, -0.348147, 0, 1, 0, 0.348147, 0, 0.93744, -6.76164, 0, 3.77964 )
-
-[node name="Tree3" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -0.933624, 0, 1.33937 )
-
-[node name="Tree9" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, -1.5834, 0, 8.31361 )
-
-[node name="Tree6" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.94452, 0, -0.328454, 0, 1, 0, 0.328454, 0, 0.94452, 0.700465, 0, 4.57041 )
-
-[node name="Tree4" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.163739, 0, 0.986503, 0, 1, 0, -0.986503, 0, 0.163739, 13.1881, 0, -2.21682 )
-
-[node name="Tree5" parent="Assets/Tree4" instance=ExtResource( 9 )]
-transform = Transform( 0.143061, 0, 0.989714, 0, 1, 0, -0.989714, 0, 0.143061, 14.6283, 0, 1.24306 )
+[node name="Trees8" type="MeshInstance" parent="Assets/Trees2"]
+transform = Transform( 0.72205, 0, 0.691841, 0, 1, 0, -0.691841, 0, 0.72205, 8.60796, 0.0116692, 9.63005 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 20 )
 
 [node name="Ground" type="MeshInstance" parent="Assets"]
 transform = Transform( 2.3659, 0, 0, 0, 1, 0, 0, 0, 2.3659, 82.0041, 0.404242, 71.3925 )
@@ -495,8 +492,8 @@ skeleton = NodePath("../..")
 material/0 = SubResource( 18 )
 
 [node name="House2" type="MeshInstance" parent="Assets"]
-transform = Transform( -2.6962, 0, -0.143096, 0, 2.7, 0, 0.143096, 0, -2.6962, 30.739, 1.41086, 103.642 )
-mesh = ExtResource( 25 )
+transform = Transform( -2.69854, 0, -0.0887191, 0, 2.7, 0, 0.0887191, 0, -2.69854, 31.9682, 1.41086, 105.107 )
+mesh = ExtResource( 24 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 18 )
 
@@ -831,3 +828,91 @@ transform = Transform( 6.98129e-05, 0, -1, 0, 1, 0, 1, 0, 6.98129e-05, 10.6014, 
 mesh = ExtResource( 25 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 19 )
+
+[node name="Trees3" type="MeshInstance" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 125.57, -0.71965, 108.108 )
+mesh = ExtResource( 35 )
+material/0 = SubResource( 21 )
+
+[node name="Trees4" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69413, 0, -2.5387 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees10" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23282, 0, -8.96316 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees5" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46066, 0, -6.94257 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees6" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.207241, 0, -5.44007 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees7" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68351, 0, -3.31585 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees8" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34706, 0, -8.75592 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees9" type="MeshInstance" parent="Trees3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.093, 0, -6.26903 )
+mesh = ExtResource( 35 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 21 )
+
+[node name="Trees4" type="MeshInstance" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 104.971, -0.841305, 159.77 )
+mesh = ExtResource( 36 )
+material/0 = SubResource( 22 )
+
+[node name="Trees5" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46502, 0, -1.83854 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="Trees6" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.09925, 0, 1.52336 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="Trees7" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36772, 0, 3.72962 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="Trees8" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53393, 0, 4.77122 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="Trees9" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02183, 0, 6.36426 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="Trees10" type="MeshInstance" parent="Trees4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83823, 0, 6.60934 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
