@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/terrain/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -14,8 +14,6 @@
 [ext_resource path="res://entities/Bear.tscn" type="PackedScene" id=12]
 [ext_resource path="res://entities/Pig.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/Fox.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/Final_models/obj/Ground.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://assets/Final_models/Texturas/Ground_Ground_BaseColor.png" type="Texture" id=16]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -109,13 +107,9 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id=16]
 material = SubResource( 15 )
 
-[sub_resource type="SpatialMaterial" id=17]
-albedo_texture = ExtResource( 16 )
-
 [node name="Spatial" type="Spatial"]
 
 [node name="HTerrain" type="Spatial" parent="."]
-visible = false
 script = ExtResource( 2 )
 lod_scale = 2.0
 _terrain_data = ExtResource( 1 )
@@ -169,7 +163,7 @@ omni_range = 8.27404
 [node name="Entities" type="Spatial" parent="."]
 
 [node name="Hunter" parent="Entities" instance=ExtResource( 11 )]
-transform = Transform( -0.999998, -4.00367e-05, 0.00221613, 0, 0.999837, 0.0180631, -0.00221649, 0.0180631, -0.999834, 79.7086, 3.7319, 71.0809 )
+transform = Transform( -0.999998, -4.00367e-05, 0.00221613, 0, 0.999837, 0.0180631, -0.00221649, 0.0180631, -0.999834, 85.4631, 2.68684, 82.689 )
 
 [node name="Bear" parent="Entities" instance=ExtResource( 12 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 59.2501, 1.32767, 68.6446 )
@@ -196,7 +190,7 @@ spot_range = 24.3171
 spot_angle = 20.293
 
 [node name="Fogueira" parent="Assets" instance=ExtResource( 8 )]
-transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 17.1781, -2.25348, -1.15308 )
+transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 100.379, 0.334787, 71.674 )
 
 [node name="Fire" type="Particles" parent="Assets/Fogueira"]
 transform = Transform( 0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.0562309, 0.00436408, 0.00569807 )
@@ -213,8 +207,3 @@ draw_pass_1 = SubResource( 16 )
 
 [node name="Tree" parent="Assets" instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 7.16364, 0, 99.5583 )
-
-[node name="Ground" type="MeshInstance" parent="."]
-transform = Transform( 2.31098, 0, 0, 0, 2.31098, 0, 0, 0, 2.31098, 0, 0, 0 )
-mesh = ExtResource( 15 )
-material/0 = SubResource( 17 )
