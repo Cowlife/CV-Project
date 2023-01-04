@@ -30,6 +30,10 @@ config/name="Cv"
 run/main_scene="res://Test.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

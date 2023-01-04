@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Final_models/obj/Trees.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/Final_models/FBX/Trees.material" type="Material" id=2]
 
-[node name="Tree" type="Spatial"]
+[sub_resource type="CylinderShape" id=1]
+height = 5.06603
+radius = 1.09001
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="KinematicBody" type="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22863, 2.8657, -10.8534 )
+shape = SubResource( 1 )
+
+[node name="Tree" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Tree"]
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )

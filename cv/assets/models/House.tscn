@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Final_models/obj/House.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Roughness.png" type="Texture" id=2]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Metallic.png" type="Texture" id=3]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_Normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/Final_models/Texturas/House_House_BaseColor.png" type="Texture" id=5]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 5 )
+metallic_texture = ExtResource( 3 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 2 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 11.2733, 9.0916, 8.51842 )
+
+[node name="KinematicBody" type="KinematicBody"]
+
+[node name="House" type="MeshInstance" parent="."]
+transform = Transform( 2.60977, 0, 0.692164, 0, 2.7, 0, -0.692164, 0, 2.60977, 123.283, 1.41086, 48.1563 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.395, 3.5749, 77.8311 )
+shape = SubResource( 19 )
