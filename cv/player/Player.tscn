@@ -22,6 +22,12 @@ mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 material/1 = ExtResource( 3 )
 
+[node name="Flashlight" type="SpotLight" parent="Pivot"]
+transform = Transform( 1, 0.000600981, 0.000102645, -0.000604293, 0.954673, 0.297658, 8.0883e-05, -0.297658, 0.954674, -0.329159, -0.00869846, 0.289458 )
+light_energy = 7.458
+spot_range = 11.167
+spot_angle = 17.08
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.950965, -0.309272, 0.00408099, 0.00558694, 0.030368, 0.99952, -0.309249, -0.950488, 0.0306068, -0.727786, -0.982571, 0.64337 )
 shape = SubResource( 4 )
@@ -33,5 +39,3 @@ transform = Transform( 1, -5.45697e-11, -8.14907e-09, 3.63798e-12, 1, -6.51926e-
 transform = Transform( 0.999993, -0.000376262, 0.00364404, -0.00248308, -0.800969, 0.598701, 0.0026935, -0.598706, -0.800964, 0.0617736, 6.05657, -11.3524 )
 current = true
 script = ExtResource( 4 )
-distance = 10.0
-height = 5.0

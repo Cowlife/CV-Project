@@ -28,6 +28,8 @@ func _physics_process(delta):
 	if(Input.is_action_pressed("move_right")):
 		dir += camera.basis[0]
 		is_moving = true
+	if(Input.is_action_pressed("toggle_flashlight")):
+		$Pivot/Flashlight.visible = not $Pivot/Flashlight.visible
 		
 	dir.y = 0
 	dir = dir.normalized()
