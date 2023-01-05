@@ -9,6 +9,7 @@
 [sub_resource type="SpatialMaterial" id=20]
 params_diffuse_mode = 4
 params_specular_mode = 3
+params_blend_mode = 1
 albedo_texture = ExtResource( 2 )
 metallic_texture = ExtResource( 3 )
 metallic_texture_channel = 4
